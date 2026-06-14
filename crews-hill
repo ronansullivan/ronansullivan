@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crews Hill: A New Town in Scale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #1a1a1a;
+      --mid:       #555;
+      --rule:      #c8b89a;
+      --paper:     #faf8f4;
+      --accent:    #8b1a1a;
+      --caption:   #777;
+      --col:       660px;
+    }
+
+    html { font-size: 18px; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      line-height: 1.75;
+    }
+
+    /* ── TOP RULE ── */
+    .top-rule {
+      border: none;
+      border-top: 3px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      height: 5px;
+      margin: 0;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      text-align: center;
+      padding: 1.5rem 1rem 0.75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .masthead .pub-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .masthead .section-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 0.25rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: var(--col);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 0;
+      text-align: left;
+    }
+
+    .hero .kicker {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero .deck {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      border-left: 2px solid var(--rule);
+      padding-left: 1rem;
+    }
+
+    .byline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── LEAD IMAGE ── */
+    .lead-image {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: block;
+    }
+    .lead-image img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+    .lead-image figcaption {
+      max-width: var(--col);
+      margin: 0.5rem auto 0;
+      padding: 0 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      color: var(--caption);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── BODY ── */
+    .body-text {
+      max-width: var(--col);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .body-text p {
+      margin-bottom: 1.4rem;
+      font-size: 1rem;
+      hyphens: auto;
+    }
+
+    .body-text p:first-child::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      float: left;
+      line-height: 0.8;
+      margin: 0.1em 0.08em 0 0;
+      color: var(--ink);
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      max-width: var(--col);
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .pull-quote blockquote {
+      border-top: 2px solid var(--ink);
+      border-bottom: 1px solid var(--rule);
+      padding: 1.25rem 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .pull-quote cite {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-style: normal;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 0.75rem;
+    }
+
+    /* ── INLINE IMAGE ── */
+    .inline-image {
+      max-width: var(--col);
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+    .inline-image img {
+      width: 100%;
+      display: block;
+    }
+    .inline-image figcaption {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      color: var(--caption);
+      margin-top: 0.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── PORTRAIT ── */
+    .portrait-wrap {
+      max-width: var(--col);
+      margin: 0 auto 0;
+      padding: 0 1.5rem;
+    }
+    .portrait-wrap figure {
+      float: right;
+      width: 220px;
+      margin: 0 0 1.5rem 2rem;
+    }
+    .portrait-wrap figure img {
+      width: 100%;
+      display: block;
+      filter: grayscale(20%);
+    }
+    .portrait-wrap figure figcaption {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      color: var(--caption);
+      margin-top: 0.4rem;
+      letter-spacing: 0.03em;
+    }
+    .portrait-wrap::after { content: ''; display: table; clear: both; }
+
+    /* ── DATA GRAPHIC ── */
+    .data-graphic {
+      max-width: var(--col);
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+    .data-graphic img {
+      width: 100%;
+      display: block;
+      border: 1px solid #e0d9ce;
+    }
+    .data-graphic figcaption {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      color: var(--caption);
+      margin-top: 0.5rem;
+    }
+
+    /* ── FLOURISH CHART ── */
+    .chart-block {
+      max-width: var(--col);
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .chart-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .chart-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .chart-rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── SECTION RULE ── */
+    .section-break {
+      max-width: var(--col);
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-break span {
+      font-family: 'Playfair Display', serif;
+      color: var(--rule);
+      font-size: 1.2rem;
+    }
+    .section-break hr {
+      flex: 1;
+      border: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 2px solid var(--ink);
+      margin-top: 4rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      color: var(--caption);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      .portrait-wrap figure {
+        float: none;
+        width: 100%;
+        margin: 0 0 1.5rem 0;
+      }
+      .lead-image img { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-rule"></div>
+
+  <header class="masthead">
+    <div class="pub-name">Ronan Sullivan &mdash; Reporting</div>
+    <div class="section-tag">Housing &bull; London &bull; Planning</div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="kicker">Enfield, North London</span>
+    <h1>Crews Hill: The New Town That Could Swallow a Community</h1>
+    <p class="deck">The government has given a "green light" to 21,000 homes on Green Belt land in Enfield. Locals say the plan will break what it claims to fix.</p>
+    <div class="byline">By Ronan Sullivan &nbsp;&bull;&nbsp; June 2026</div>
+  </div>
+
+  <!-- LEAD IMAGE -->
+  <figure class="lead-image">
+    <img src="Crews_Hill_Station.jpg" alt="Crews Hill railway station sign with a tree-lined road behind it"/>
+    <figcaption>Crews Hill station, northern Enfield. The government's proposals centre on the area's rail connection to London. © James Cracknell via Wikimedia Commons</figcaption>
+  </figure>
+
+  <!-- BODY OPENS -->
+  <div class="body-text">
+    <p>The government has given the "green light" to new towns — such as the 21,000-home Crews Hill proposal — with a series of sweeping reforms. The Ministry of Housing, Communities and Local Government has proposed speeding up housing projects located within 15 minutes of a station and to give the Housing Secretary, Steve Reed, the power to decide on developments of 150 homes or more.</p>
+
+    <p>Crews Hill, in northern Enfield, was named as a potential location for a 21,000-home development in September's New Towns Taskforce report. The Taskforce is described as "an independent expert advisory panel established in September 2024 to support the government to deliver the next generation of new towns." It is the latest move to cut red tape and centralise approval for large-scale projects as the UK grapples with a severe housing shortage.</p>
+
+    <p>No timeline has been given for the development, which has a target for 50 per cent of homes to be affordable. The area is currently home to around 500 people, based on 2011 census data and Enfield Council.</p>
+  </div>
+
+  <!-- SCALE GRAPHIC -->
+  <figure class="data-graphic" style="max-width:700px;">
+    <img src="ChatGPT_Image_Jun_13__2026__11_38_04_PM.png" alt="Dot graphic comparing Crews Hill today — around 1,900 homes — with the proposed 21,000-home new town"/>
+    <figcaption>Each dot represents 100 homes. Sources: MHCLG analysis of DLUHC 2023 Census data; New Towns Draft Programme, MHCLG, March 2026.</figcaption>
+  </figure>
+
+  <div class="body-text" style="padding-top:0;">
+    <p>In an announcement alongside Chancellor of the Exchequer, Rachel Reeves, Housing Secretary Reed said: "We're making it easier to build well-connected and high-quality homes. This is about action: spades in the ground, breathing new life into communities, and families finally getting the homes they need."</p>
+  </div>
+
+  <!-- PULL QUOTE: BURNS -->
+  <div class="pull-quote">
+    <blockquote>
+      "I suppose it brings them back to life by basically getting rid of the community."
+      <cite>— Matt Burns, co-founder, Better Homes Enfield</cite>
+    </blockquote>
+  </div>
+
+  <!-- PORTRAIT + COPY -->
+  <div class="portrait-wrap">
+    <figure>
+      <img src="Matt_Burn_cropped.png" alt="Matt Burns, sustainability consultant and co-founder of Better Homes Enfield"/>
+      <figcaption>Matt Burns, sustainability consultant and co-founder of Better Homes Enfield.</figcaption>
+    </figure>
+  </div>
+
+  <div class="body-text" style="padding-top:0.5rem;">
+    <p>But Matt Burns, a sustainability consultant and co-founder of Better Homes Enfield, said it could have the opposite effect. "Generally this kind of regeneration in London has seen the breakdown of community. Not bringing them back to life," he said. Local politicians failed to communicate the project properly, he claims.</p>
+
+    <p>"You're talking about a huge, huge amount of infrastructure building. Changes to roads, changes to railways," Burns added. "It sounds like a 50-year development to me."</p>
+  </div>
+
+  <!-- FLOURISH CHART -->
+  <div class="chart-block">
+    <div class="chart-label">Data</div>
+    <div class="chart-title">Enfield builds less than a third of the homes it needs each year</div>
+    <hr class="chart-rule"/>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/29366969"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/29366969/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+    <div style="font-family:'Inter',sans-serif;font-size:0.62rem;color:var(--caption);margin-top:0.6rem;">Source: Enfield Housing and Growth Strategy 2025–2030, Enfield Council</div>
+  </div>
+
+  <div class="section-break"><hr/><span>&#8273;</span><hr/></div>
+
+  <div class="body-text" style="padding-top:0;">
+    <p>Andrew Lack and John West, spokespeople for conservation charity The Enfield Society, said the government's announcement had alarmed local residents who oppose the Crews Hill proposal. "It's looking more likely that this scheme will be selected next Spring, necessitating a much more aggressive stance from local residents who oppose it," Lack said.</p>
+
+    <p>This week's announcement also stated green belt land would fall under the new rules. The Crews Hill site has already been described as "poor quality" by the New Towns report. The green belt is a protected ring of land around a city designed to halt urban sprawl.</p>
+
+    <p>"The characterisation that the green belt is 'low grade' and the area 'well-connected' does not stand up to scrutiny," Lack said. The Society has presented evidence to Enfield Council showing these claims to be "largely untrue" for the Crews Hill area.</p>
+  </div>
+
+  <!-- VICARAGE FARM IMAGE -->
+  <figure class="inline-image">
+    <img src="Farmland_in_Vicarage_Farm__Enfield_-_geograph_org_uk_-_3658144.jpg" alt="Rolling green farmland at Vicarage Farm, Enfield, with houses visible in the distance"/>
+    <figcaption>Farmland at Vicarage Farm, Enfield — earmarked for 3,700 homes under the Chase Park proposals. © Christine Matthews via Wikimedia Commons / Geograph</figcaption>
+  </figure>
+
+  <div class="body-text" style="padding-top:0;">
+    <p>Lack added: "It may be true that some of the land to the east of the railway line to Crews Hill station is not good quality green belt and the Society might be prepared to see some development there, but not west of the railway and not at Vicarage Farm."</p>
+
+    <p>Vicarage Farm — called Chase Park by developer-owners Comer Homes — is a large swathe of green belt land between Crews Hill and Oakwood: 3,700 homes are proposed for construction there. Local conservationists are particularly concerned about the site because of its status as a remnant of a medieval hunting lodge.</p>
+  </div>
+
+  <!-- PULL QUOTE: BURNS ON HOUSING CRISIS -->
+  <div class="pull-quote">
+    <blockquote>
+      "This is not solving the housing crisis for the 5,000 children in Enfield in temporary accommodation today."
+      <cite>— Matt Burns</cite>
+    </blockquote>
+  </div>
+
+  <div class="body-text" style="padding-top:0;">
+    <p>In the announcement, Reeves said: "This is another demonstration that our Plan for Change is getting spades in the ground faster, connecting people with jobs and opportunities closer to where they live, and boosting towns and cities across the country."</p>
+
+    <p>The government's Plan for Change includes the objective to help the 150,000 children nationwide in temporary accommodation into social housing. According to Trust For London, around 17 households per 1,000 in Enfield include children in temporary accommodation — the eighth highest in London.</p>
+
+    <p>Burns is unconvinced the scheme addresses the immediate crisis: "It's not solving the crisis for the people who can't afford to pay their rent today."</p>
+
+    <p>Labour MP for Enfield North Feryal Clark and Labour council leader Ergin Erbil are both in favour of the Crews Hill proposal. Neither responded to a request for comment. Clark said the proposal would be a "big change" for the area, but believed it would address the local need for social housing. Erbil said: "We welcome the government's decision to include Crews Hill and Chase Park as a potential new town. This is a strong vote of confidence in Enfield."</p>
+  </div>
+
+  <footer>
+    <p>Ronan Sullivan &nbsp;&bull;&nbsp; June 2026 &nbsp;&bull;&nbsp; All images used under Creative Commons licence or with permission.</p>
+  </footer>
+
+</body>
+</html>
